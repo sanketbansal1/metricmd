@@ -1,0 +1,126 @@
+<!doctype html><html><head><meta charset="utf-8">
+<title>MetricMD · the diagnosis layer for business metrics</title>
+<style>
+:root{--p:#7500C0;--acc:#A100FF;--dark:#2B0A4D;--ink:#241238;--panel:#17141F;
+--panel2:#241238;--light:#F5EFFC;--mid:#B9A6D6;--green:#2ECC71;--amber:#F5C97B;--red:#FF6B5E}
+*{box-sizing:border-box;margin:0}
+body{font-family:'Segoe UI',Calibri,Arial,sans-serif;background:#100D17;color:#EDE7F6;padding:0}
+header{background:linear-gradient(90deg,var(--dark),#4A148C);padding:18px 34px;display:flex;
+justify-content:space-between;align-items:baseline;border-bottom:2px solid var(--acc)}
+header h1{font-size:26px}header h1 b{color:var(--acc)}
+header .sub{color:var(--mid);font-size:13px}
+.wrap{max-width:1240px;margin:26px auto;padding:0 24px}
+.scorebar{display:grid;grid-template-columns:repeat(5,1fr);gap:14px;margin-bottom:26px}
+.score{background:var(--panel2);border-radius:10px;padding:14px 16px}
+.score .n{font-size:26px;font-weight:800;color:var(--green)}
+.score .n.warn{color:var(--amber)}
+.score .l{font-size:11px;color:var(--mid);margin-top:2px}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+.card{background:var(--panel);border-radius:12px;overflow:hidden;border:1px solid #322050}
+.card .top{background:var(--panel2);padding:12px 18px;display:flex;justify-content:space-between}
+.card .top .t{font-weight:700}.card .top .w{color:var(--mid);font-size:12px}
+.card .body{padding:16px 18px}
+.badge{display:inline-block;padding:3px 10px;border-radius:20px;font-size:11px;font-weight:700}
+.badge.conf{background:#123B24;color:var(--green)}.badge.amb{background:#3d2f10;color:var(--amber)}
+.badge.unk{background:#3d1a15;color:var(--red)}.badge.blk{background:#3d1a15;color:var(--red)}
+.kpi{font-size:19px;font-weight:700;margin:8px 0 2px}
+.kpi .neg{color:var(--red)}.kpi .pos{color:var(--green)}
+.confbar{height:7px;background:#322050;border-radius:5px;margin:10px 0 14px}
+.confbar i{display:block;height:7px;border-radius:5px;background:linear-gradient(90deg,var(--p),var(--acc))}
+.ev{font-size:12.5px;color:#D8CFEA;padding:5px 0;border-top:1px dashed #322050;display:flex;gap:8px}
+.ev .id{color:var(--acc);font-weight:700;min-width:26px}
+.chip{font-size:10px;background:#322050;color:var(--mid);border-radius:4px;padding:1px 6px;margin-left:auto;white-space:nowrap}
+.next{background:#1d1530;border-left:3px solid var(--amber);padding:10px 12px;margin-top:12px;font-size:12.5px}
+.verified{background:#0f2b1b;border-left:3px solid var(--green);padding:10px 12px;margin-top:8px;font-size:12.5px}
+.ask{background:#2b1512;border-left:3px solid var(--red);padding:10px 12px;margin-top:12px;font-size:12.5px}
+svg{width:100%;height:86px;margin:6px 0}
+.btns{margin-top:14px}
+.btns button{padding:7px 22px;border-radius:6px;border:0;font-weight:700;cursor:pointer}
+.btns .ok{background:var(--green);color:#06220f;margin-right:10px}
+.btns .no{background:transparent;color:var(--red);border:1px solid var(--red)}
+.block{grid-column:1/3;background:#2b1512;border:1px solid var(--red);border-radius:12px;padding:16px 20px}
+footer{background:var(--panel2);margin-top:26px;padding:14px 34px;font-size:12px;color:var(--mid);
+display:flex;justify-content:space-between}
+h2{font-size:15px;color:var(--mid);letter-spacing:2px;margin:26px 0 12px;text-transform:uppercase}
+.truth{background:var(--panel2);border-radius:10px;padding:12px 18px;font-size:12.5px;color:var(--mid);margin-top:8px}
+.truth b{color:#EDE7F6}
+</style></head><body>
+<header><h1>Metric<b>MD</b> <span style="font-size:14px;color:#B9A6D6">· the diagnosis layer for business metrics</span></h1>
+<span class="sub">UrbanBasket Retail (simulated) · Team Phoenix, IIT Kanpur · engine output, not a mockup</span></header>
+<div class="wrap">
+<h2>Measured on 73 planted runs · python harness.py</h2>
+<div class="scorebar"><div class="score"><div class="n ">88.5%</div><div class="l">detection recall · 73 blind runs</div></div><div class="score"><div class="n ">80.0%</div><div class="l">diagnosis accuracy, top 1 named cause</div></div><div class="score"><div class="n ">0.0%</div><div class="l">false alarms on clean series</div></div><div class="score"><div class="n ">83.3%</div><div class="l">correct honest UNKNOWNs</div></div><div class="score"><div class="n warn">1.4%</div><div class="l">wrong but confident (1 of 73 runs)</div></div></div>
+<h2>This week's diagnoses · python demo.py</h2>
+<div class="grid">
+
+<div class="card"><div class="top"><span class="t">Story A · North / Dairy</span>
+<span class="w">2026-08-07 to 2026-08-20</span></div>
+<div class="body">
+<span class="badge conf">CONFIDENT 0.72</span>
+<span class="badge" style="background:#322050;color:#D8CFEA;margin-left:6px">delivery_degradation</span>
+<div class="kpi">net_revenue <span class="neg">-9.1%</span>
+&nbsp;(-51,809 INR) vs expected band</div>
+<svg viewBox="0 0 520 80" preserveAspectRatio="none"><rect x="394.5" y="4" width="120.5" height="72" fill="#A100FF" opacity="0.10"/><polyline points="5.0,35.6 14.3,12.0 23.5,33.1 32.8,37.9 42.1,55.0 51.4,50.6 60.6,57.8 69.9,31.9 79.2,14.1 88.5,28.9 97.7,39.9 107.0,60.4 116.3,50.7 125.5,31.7 134.8,36.7 144.1,27.3 153.4,23.0 162.6,31.6 171.9,63.7 181.2,57.2 190.5,50.8 199.7,33.7 209.0,21.4 218.3,37.4 227.5,42.2 236.8,58.5 246.1,49.1 255.4,44.2 264.6,41.2 273.9,26.1 283.2,28.2 292.5,53.1 301.7,67.5 311.0,48.8 320.3,42.0 329.5,36.6 338.8,16.2 348.1,31.4 357.4,50.2 366.6,52.3 375.9,44.5 385.2,57.9 394.5,39.7 403.7,37.1 413.0,58.4 422.3,69.1 431.5,67.8 440.8,68.2 450.1,63.2 459.4,58.1 468.6,44.7 477.9,35.7 487.2,61.7 496.5,61.8 505.7,72.0 515.0,51.2" fill="none" stroke="#A100FF" stroke-width="2"/><text x="398.5" y="15" fill="#B9A6D6" font-size="10">diagnosis window</text></svg>
+<div class="confbar"><i style="width:72%"></i></div>
+<div class="ev"><span class="id">E1</span><span>net_revenue North moved -51,809 (-9.1%) vs day-of-week expected band, mean z -2.16</span><span class="chip">statistics · pos_sales</span></div><div class="ev"><span class="id">E2</span><span>channel=App explains 54.6% of the movement</span><span class="chip">contribution_analysis · pos_sales</span></div><div class="ev"><span class="id">E3</span><span>avg delivery time rose 11 to 18 min in the window</span><span class="chip">sql_aggregation · pos_sales</span></div><div class="ev"><span class="id">E4</span><span>49 support tickets in the window cite delivery delays (keyword retrieval over ops_tickets)</span><span class="chip">retrieval · ops_tickets</span></div><div class="ev"><span class="id">E5</span><span>shape classified step_down_persistent; top fingerprint delivery_degradation score 1.0, runner up competitor_entry 0.45</span><span class="chip">business_rules · fingerprint_library</span></div><div class="ev"><span class="id">E6</span><span>control test PASSED: the same window in control regions stayed inside the band (e.g. South mean z -0.21), the cause is local to North</span><span class="chip">control_group · pos_sales</span></div><div class="ev"><span class="id">E7</span><span>post action recheck at 2026-08-30: mean z -0.09, verdict RESOLVED, KPI back inside its expected band, diagnosis confirmed</span><span class="chip">statistics · pos_sales</span></div><div class="next"><b>NEXT STEP</b> Add backup rider capacity, escalate to the logistics partner, recheck in 7 days. Owner: ops_lead. Recheck in 7 days.</div><div class="verified"><b>VERIFICATION</b> RESOLVED, KPI back inside its expected band, diagnosis confirmed (mean z after: -0.09)</div>
+<div class="btns"><button class="ok" onclick="this.textContent='Accepted ✓';this.disabled=true">Accept</button>
+<button class="no" onclick="this.textContent='Flagged';this.disabled=true">Flag</button>
+<span style="font-size:11px;color:#B9A6D6;margin-left:10px">every Accept / Flag reweights this fingerprint's prior for North</span></div>
+</div></div>
+
+<div class="card"><div class="top"><span class="t">Story B · West / Beverages</span>
+<span class="w">2026-08-07 to 2026-08-20</span></div>
+<div class="body">
+<span class="badge conf">CONFIDENT 0.80</span>
+<span class="badge" style="background:#322050;color:#D8CFEA;margin-left:6px">competitor_entry</span>
+<div class="kpi">net_revenue <span class="neg">-18.1%</span>
+&nbsp;(-116,418 INR) vs expected band</div>
+<svg viewBox="0 0 520 80" preserveAspectRatio="none"><rect x="394.5" y="4" width="120.5" height="72" fill="#A100FF" opacity="0.10"/><polyline points="5.0,24.5 14.3,12.0 23.5,18.4 32.8,39.2 42.1,36.8 51.4,39.2 60.6,32.3 69.9,23.5 79.2,19.3 88.5,18.9 97.7,29.6 107.0,31.8 116.3,34.1 125.5,30.2 134.8,17.2 144.1,18.9 153.4,19.6 162.6,30.4 171.9,43.7 181.2,32.3 190.5,38.1 199.7,29.6 209.0,17.8 218.3,23.7 227.5,26.1 236.8,41.6 246.1,37.5 255.4,32.2 264.6,28.1 273.9,20.0 283.2,21.4 292.5,36.8 301.7,41.3 311.0,34.9 320.3,27.4 329.5,31.1 338.8,17.8 348.1,20.1 357.4,39.0 366.6,42.3 375.9,39.5 385.2,39.1 394.5,31.4 403.7,36.7 413.0,26.0 422.3,37.4 431.5,56.6 440.8,47.9 450.1,44.2 459.4,48.5 468.6,37.3 477.9,46.7 487.2,60.6 496.5,63.2 505.7,72.0 515.0,64.7" fill="none" stroke="#A100FF" stroke-width="2"/><text x="398.5" y="15" fill="#B9A6D6" font-size="10">diagnosis window</text></svg>
+<div class="confbar"><i style="width:80%"></i></div>
+<div class="ev"><span class="id">E1</span><span>net_revenue West moved -116,418 (-18.1%) vs day-of-week expected band, mean z -4.3</span><span class="chip">statistics · pos_sales</span></div><div class="ev"><span class="id">E2</span><span>channel=App explains 40.9% of the movement</span><span class="chip">contribution_analysis · pos_sales</span></div><div class="ev"><span class="id">E3</span><span>shape classified slow_slide; top fingerprint competitor_entry score 1.0, runner up stockout 0.0</span><span class="chip">business_rules · fingerprint_library</span></div><div class="ev"><span class="id">E4</span><span>control test PASSED: the same window in control regions stayed inside the band (e.g. North mean z -0.05), the cause is local to West</span><span class="chip">control_group · pos_sales</span></div><div class="next"><b>NEXT STEP</b> Field check within 1 km of affected stores, launch a local counter promo, monitor weekly. Owner: regional_head. Recheck in 30 days.</div>
+<div class="btns"><button class="ok" onclick="this.textContent='Accepted ✓';this.disabled=true">Accept</button>
+<button class="no" onclick="this.textContent='Flagged';this.disabled=true">Flag</button>
+<span style="font-size:11px;color:#B9A6D6;margin-left:10px">control test passed: cause is local to West</span></div>
+</div></div>
+
+<div class="card"><div class="top"><span class="t">Story C · East / Household</span>
+<span class="w">2026-08-07 to 2026-08-20</span></div>
+<div class="body">
+<span class="badge conf">CONFIDENT 0.67</span>
+<span class="badge" style="background:#322050;color:#D8CFEA;margin-left:6px">discount_launch</span>
+<div class="kpi">net_revenue <span class="pos">+6.9%</span>
+&nbsp;(+29,916 INR) vs expected band</div>
+<svg viewBox="0 0 520 80" preserveAspectRatio="none"><rect x="394.5" y="4" width="120.5" height="72" fill="#A100FF" opacity="0.10"/><polyline points="5.0,39.3 14.3,21.8 23.5,40.5 32.8,45.2 42.1,58.4 51.4,60.7 60.6,72.0 69.9,49.9 79.2,22.5 88.5,39.6 97.7,57.4 107.0,61.4 116.3,61.9 125.5,53.3 134.8,41.4 144.1,20.2 153.4,27.0 162.6,48.0 171.9,68.3 181.2,60.7 190.5,46.0 199.7,43.4 209.0,21.9 218.3,42.5 227.5,57.4 236.8,70.7 246.1,67.8 255.4,49.1 264.6,51.2 273.9,28.5 283.2,32.7 292.5,56.6 301.7,59.8 311.0,50.0 320.3,36.7 329.5,43.8 338.8,33.7 348.1,31.9 357.4,47.4 366.6,56.6 375.9,55.7 385.2,47.9 394.5,42.9 403.7,25.7 413.0,27.1 422.3,42.0 431.5,46.1 440.8,47.4 450.1,36.6 459.4,32.5 468.6,12.0 477.9,25.3 487.2,40.1 496.5,55.0 505.7,46.7 515.0,24.5" fill="none" stroke="#A100FF" stroke-width="2"/><text x="398.5" y="15" fill="#B9A6D6" font-size="10">diagnosis window</text></svg>
+<div class="confbar"><i style="width:67%"></i></div>
+<div class="ev"><span class="id">E1</span><span>net_revenue East moved 29,916 (6.9%) vs day-of-week expected band, mean z 1.73</span><span class="chip">statistics · pos_sales</span></div><div class="ev"><span class="id">E2</span><span>channel=App explains 43.6% of the movement</span><span class="chip">contribution_analysis · pos_sales</span></div><div class="ev"><span class="id">E3</span><span>avg unit price moved -15.5% in the window (140.0 to 118.4 INR)</span><span class="chip">sql_aggregation · pos_sales</span></div><div class="ev"><span class="id">E4</span><span>shape classified lift; top fingerprint discount_launch score 1.0, runner up stockout 0.0</span><span class="chip">business_rules · fingerprint_library</span></div><div class="ev"><span class="id">E5</span><span>control test PASSED: the same window in control regions stayed inside the band (e.g. North mean z -0.16), the cause is local to East</span><span class="chip">control_group · pos_sales</span></div><div class="next"><b>NEXT STEP</b> Confirm promo ROI, cap discount depth if margin falls below floor. Owner: pricing_lead. Recheck in 0 days.</div>
+<div class="btns"><button class="ok" onclick="this.textContent='Accepted ✓';this.disabled=true">Accept</button>
+<button class="no" onclick="this.textContent='Flagged';this.disabled=true">Flag</button>
+<span style="font-size:11px;color:#B9A6D6;margin-left:10px">wins get explained too</span></div>
+</div></div>
+
+<div class="card"><div class="top"><span class="t">Story D · South / Household</span>
+<span class="w">2026-08-07 to 2026-08-20</span></div>
+<div class="body">
+<span class="badge unk">HONEST UNKNOWN</span>
+<span class="badge" style="background:#322050;color:#D8CFEA;margin-left:6px">UNKNOWN</span>
+<div class="kpi">net_revenue <span class="neg">-15.6%</span>
+&nbsp;(-108,421 INR) vs expected band</div>
+<svg viewBox="0 0 520 80" preserveAspectRatio="none"><rect x="394.5" y="4" width="120.5" height="72" fill="#A100FF" opacity="0.10"/><polyline points="5.0,32.8 14.3,14.3 23.5,33.1 32.8,34.1 42.1,37.8 51.4,50.0 60.6,34.1 69.9,42.6 79.2,16.2 88.5,18.3 97.7,51.2 107.0,44.4 116.3,37.9 125.5,42.2 134.8,30.5 144.1,18.4 153.4,27.0 162.6,50.3 171.9,43.1 181.2,46.1 190.5,40.2 199.7,40.0 209.0,30.7 218.3,25.4 227.5,40.9 236.8,52.1 246.1,37.9 255.4,45.9 264.6,40.1 273.9,23.0 283.2,29.2 292.5,39.9 301.7,47.1 311.0,38.4 320.3,42.1 329.5,26.8 338.8,25.1 348.1,29.3 357.4,44.8 366.6,38.1 375.9,45.5 385.2,39.8 394.5,35.6 403.7,12.0 413.0,25.6 422.3,37.5 431.5,67.8 440.8,71.5 450.1,68.2 459.4,65.2 468.6,54.1 477.9,60.9 487.2,71.6 496.5,71.4 505.7,72.0 515.0,35.0" fill="none" stroke="#A100FF" stroke-width="2"/><text x="398.5" y="15" fill="#B9A6D6" font-size="10">diagnosis window</text></svg>
+<div class="confbar"><i style="width:49%"></i></div>
+<div class="ev"><span class="id">E1</span><span>net_revenue South moved -108,421 (-15.6%) vs day-of-week expected band, mean z -3.58</span><span class="chip">statistics · pos_sales</span></div><div class="ev"><span class="id">E2</span><span>channel=App explains 42.0% of the movement</span><span class="chip">contribution_analysis · pos_sales</span></div><div class="ev"><span class="id">E3</span><span>shape classified noise; top fingerprint competitor_entry score 0.45, runner up stockout 0.0</span><span class="chip">business_rules · fingerprint_library</span></div><div class="ask"><b>HUMAN ASK</b> No fingerprint fits. Nearest human ask routed to the South ops lead: what changed on the ground between 2026-08-07 and 2026-08-20? The answer becomes a new fingerprint.</div>
+<div class="btns"><button class="ok" onclick="this.textContent='Accepted ✓';this.disabled=true">Accept</button>
+<button class="no" onclick="this.textContent='Flagged';this.disabled=true">Flag</button>
+<span style="font-size:11px;color:#B9A6D6;margin-left:10px">refusing to guess is a feature</span></div>
+</div></div>
+<div class="block"><span class="badge blk">ENTITLEMENT BLOCK</span>
+<div style="margin-top:8px;font-size:13px">ENTITLEMENT BLOCK: Priya Malhotra is scoped to region North by the contract, diagnosis for West is withheld. Logged to audit trail.</div>
+<div style="margin-top:6px;font-size:11px;color:#B9A6D6">Row security lives in contract.yaml and is enforced
+before a single word is phrased. Every block leaves an audit log line.</div></div>
+</div>
+<div class="truth"><b>The truth boundary:</b> every number on this page was computed by SQL, statistics,
+business rules or retrieval before any narrative existed. The LLM, when enabled, only phrases the evidence
+list. This page was generated at 0 LLM tokens.</div>
+</div>
+<footer><span>engine time 74.6 ms · llm tokens 0 · cost INR 0.0</span>
+<span>MetricMD · Accenture Innovation Challenge 2026 · Round 2 · BusinessIntelligence.ai</span></footer>
+</body></html>
