@@ -1,0 +1,23 @@
+{
+ "events": [
+  {
+   "at": "2026-08-30T01:16:27",
+   "case_id": "MMD-101",
+   "verdict": "flag",
+   "mechanism": "delivery_degradation",
+   "note": "kuch bhi"
+  }
+ ],
+ "mechanism_priors": {
+  "North:delivery_degradation": -0.1
+ },
+ "draft_fingerprints": [
+  {
+   "from_case": "MMD-101",
+   "region": "North",
+   "human_note": "kuch bhi",
+   "status": "draft",
+   "next": "analyst reviews, names the shape and corroborators, and it joins contract.yaml as a new fingerprint"
+  }
+ ]
+}

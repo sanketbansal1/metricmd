@@ -1,0 +1,2157 @@
+{
+ "generated_at": "2026-08-30T00:54:49",
+ "business": "UrbanBasket Retail (simulated)",
+ "personas": {
+  "regional_head": {
+   "name": "Priya Malhotra",
+   "scope": {
+    "region": "North"
+   },
+   "depth": "executive",
+   "levers": [
+    "reorder",
+    "pricing_escalation",
+    "logistics_backup",
+    "local_promo"
+   ]
+  },
+  "central_analyst": {
+   "name": "Dev Rao",
+   "scope": {},
+   "depth": "analyst",
+   "levers": [
+    "full"
+   ]
+  }
+ },
+ "fingerprints": {
+  "stockout": {
+   "shape": "cliff_rebound",
+   "playbook": "Expedite reorder of the affected SKU, add safety buffer stock, notify category manager",
+   "owner": "category_manager",
+   "recovery_days": 4
+  },
+  "price_rise": {
+   "shape": "step_down_persistent",
+   "playbook": "Review the last price change, run an elasticity check, consider partial rollback on hero SKUs",
+   "owner": "pricing_lead",
+   "recovery_days": 14
+  },
+  "competitor_entry": {
+   "shape": "slow_slide",
+   "playbook": "Field check within 1 km of affected stores, launch a local counter promo, monitor weekly",
+   "owner": "regional_head",
+   "recovery_days": 30
+  },
+  "campaign_end": {
+   "shape": "spike_return",
+   "playbook": "No corrective action. Treat as planned lift decay and adjust the forecast baseline",
+   "owner": "marketing_lead",
+   "recovery_days": 0
+  },
+  "delivery_degradation": {
+   "shape": "step_down_persistent",
+   "playbook": "Add backup rider capacity, escalate to the logistics partner, recheck in 7 days",
+   "owner": "ops_lead",
+   "recovery_days": 7
+  },
+  "discount_launch": {
+   "shape": "lift",
+   "playbook": "Confirm promo ROI, cap discount depth if margin falls below floor",
+   "owner": "pricing_lead",
+   "recovery_days": 0
+  },
+  "cannibalization": {
+   "shape": "step_down_persistent",
+   "playbook": "Rebalance shelf and ad spend across sibling SKUs. No net revenue action needed",
+   "owner": "category_manager",
+   "recovery_days": 0
+  },
+  "supply_shortage": {
+   "shape": "step_down_persistent",
+   "playbook": "Qualify an alternate supplier, bridge hero SKUs with air freight",
+   "owner": "supply_lead",
+   "recovery_days": 10
+  }
+ },
+ "scorecard": {
+  "runs": 73,
+  "detection_recall": 88.5,
+  "diagnosis_accuracy": 80.0,
+  "false_alarm_rate": 0.0,
+  "correct_unknown_rate": 83.3,
+  "wrong_confident": "1 of 73"
+ },
+ "harness_cases": [
+  {
+   "case": "stockout-1/s1",
+   "expected": "stockout",
+   "got": "stockout",
+   "ok": true,
+   "tier": "CONFIDENT",
+   "conf": 0.81
+  },
+  {
+   "case": "stockout-2/s1",
+   "expected": "stockout",
+   "got": "stockout",
+   "ok": true,
+   "tier": "CONFIDENT",
+   "conf": 0.75
+  },
+  {
+   "case": "price-1/s1",
+   "expected": "price_rise",
+   "got": "price_rise",
+   "ok": true,
+   "tier": "CONFIDENT",
+   "conf": 0.75
+  },
+  {
+   "case": "price-2/s1",
+   "expected": "price_rise",
+   "got": "price_rise",
+   "ok": true,
+   "tier": "CONFIDENT",
+   "conf": 0.72
+  },
+  {
+   "case": "competitor-1/s1",
+   "expected": "competitor_entry",
+   "got": "UNKNOWN",
+   "ok": false,
+   "tier": "UNKNOWN",
+   "conf": 0.47
+  },
+  {
+   "case": "competitor-2/s1",
+   "expected": "competitor_entry",
+   "got": "competitor_entry",
+   "ok": true,
+   "tier": "CONFIDENT",
+   "conf": 0.73
+  },
+  {
+   "case": "campaign-1/s1",
+   "expected": "campaign_end",
+   "got": "campaign_end",
+   "ok": true,
+   "tier": "CONFIDENT",
+   "conf": 0.5
+  },
+  {
+   "case": "delivery-1/s1",
+   "expected": "delivery_degradation",
+   "got": "delivery_degradation",
+   "ok": true,
+   "tier": "CONFIDENT",
+   "conf": 0.68
+  },
+  {
+   "case": "delivery-2/s1",
+   "expected": "delivery_degradation",
+   "got": "delivery_degradation",
+   "ok": true,
+   "tier": "CONFIDENT",
+   "conf": 0.64
+  },
+  {
+   "case": "discount-1/s1",
+   "expected": "discount_launch",
+   "got": "discount_launch",
+   "ok": true,
+   "tier": "CONFIDENT",
+   "conf": 0.7
+  },
+  {
+   "case": "supply-1/s1",
+   "expected": "supply_shortage",
+   "got": "supply_shortage",
+   "ok": true,
+   "tier": "CONFIDENT",
+   "conf": 0.88
+  },
+  {
+   "case": "supply-2/s1",
+   "expected": "supply_shortage",
+   "got": "supply_shortage",
+   "ok": true,
+   "tier": "CONFIDENT",
+   "conf": 0.87
+  },
+  {
+   "case": "cannibal-1/s1",
+   "expected": "cannibalization",
+   "got": "cannibalization",
+   "ok": true,
+   "tier": "CONFIDENT",
+   "conf": 0.64
+  },
+  {
+   "case": "unknown-1/s1",
+   "expected": "UNKNOWN",
+   "got": "UNKNOWN",
+   "ok": true,
+   "tier": "UNKNOWN",
+   "conf": 0.5
+  },
+  {
+   "case": "unknown-2/s1",
+   "expected": "UNKNOWN",
+   "got": "UNKNOWN",
+   "ok": true,
+   "tier": "UNKNOWN",
+   "conf": 0.51
+  },
+  {
+   "case": "stockout-weak/s1",
+   "expected": "stockout",
+   "got": "QUIET",
+   "ok": false,
+   "tier": "QUIET",
+   "conf": null
+  },
+  {
+   "case": "price-subtle/s1",
+   "expected": "price_rise",
+   "got": "price_rise",
+   "ok": true,
+   "tier": "CONFIDENT",
+   "conf": 0.76
+  },
+  {
+   "case": "deliv-short/s1",
+   "expected": "delivery_degradation",
+   "got": "delivery_degradation",
+   "ok": true,
+   "tier": "CONFIDENT",
+   "conf": 0.69
+  },
+  {
+   "case": "late-onset/s1",
+   "expected": "supply_shortage",
+   "got": "supply_shortage",
+   "ok": true,
+   "tier": "CONFIDENT",
+   "conf": 0.71
+  },
+  {
+   "case": "double-cause/s1",
+   "expected": "delivery_degradation",
+   "got": "delivery_degradation",
+   "ok": true,
+   "tier": "AMBIGUOUS",
+   "conf": 0.73
+  },
+  {
+   "case": "clean-1/s1",
+   "expected": "QUIET",
+   "got": "QUIET",
+   "ok": true,
+   "tier": "QUIET",
+   "conf": null
+  },
+  {
+   "case": "clean-2/s1",
+   "expected": "QUIET",
+   "got": "QUIET",
+   "ok": true,
+   "tier": "QUIET",
+   "conf": null
+  },
+  {
+   "case": "clean-3/s1",
+   "expected": "QUIET",
+   "got": "QUIET",
+   "ok": true,
+   "tier": "QUIET",
+   "conf": null
+  },
+  {
+   "case": "clean-4/s1",
+   "expected": "QUIET",
+   "got": "QUIET",
+   "ok": true,
+   "tier": "QUIET",
+   "conf": null
+  },
+  {
+   "case": "stockout-1/s2",
+   "expected": "stockout",
+   "got": "stockout",
+   "ok": true,
+   "tier": "CONFIDENT",
+   "conf": 0.76
+  },
+  {
+   "case": "stockout-2/s2",
+   "expected": "stockout",
+   "got": "stockout",
+   "ok": true,
+   "tier": "CONFIDENT",
+   "conf": 0.79
+  },
+  {
+   "case": "price-1/s2",
+   "expected": "price_rise",
+   "got": "price_rise",
+   "ok": true,
+   "tier": "CONFIDENT",
+   "conf": 0.76
+  },
+  {
+   "case": "price-2/s2",
+   "expected": "price_rise",
+   "got": "price_rise",
+   "ok": true,
+   "tier": "CONFIDENT",
+   "conf": 0.7
+  },
+  {
+   "case": "competitor-1/s2",
+   "expected": "competitor_entry",
+   "got": "UNKNOWN",
+   "ok": false,
+   "tier": "UNKNOWN",
+   "conf": 0.46
+  },
+  {
+   "case": "competitor-2/s2",
+   "expected": "competitor_entry",
+   "got": "competitor_entry",
+   "ok": true,
+   "tier": "CONFIDENT",
+   "conf": 0.83
+  },
+  {
+   "case": "campaign-1/s2",
+   "expected": "campaign_end",
+   "got": "campaign_end",
+   "ok": true,
+   "tier": "CONFIDENT",
+   "conf": 0.51
+  },
+  {
+   "case": "delivery-1/s2",
+   "expected": "delivery_degradation",
+   "got": "delivery_degradation",
+   "ok": true,
+   "tier": "CONFIDENT",
+   "conf": 0.7
+  },
+  {
+   "case": "delivery-2/s2",
+   "expected": "delivery_degradation",
+   "got": "QUIET",
+   "ok": false,
+   "tier": "QUIET",
+   "conf": null
+  },
+  {
+   "case": "discount-1/s2",
+   "expected": "discount_launch",
+   "got": "discount_launch",
+   "ok": true,
+   "tier": "CONFIDENT",
+   "conf": 0.67
+  },
+  {
+   "case": "supply-1/s2",
+   "expected": "supply_shortage",
+   "got": "supply_shortage",
+   "ok": true,
+   "tier": "CONFIDENT",
+   "conf": 0.89
+  },
+  {
+   "case": "supply-2/s2",
+   "expected": "supply_shortage",
+   "got": "supply_shortage",
+   "ok": true,
+   "tier": "CONFIDENT",
+   "conf": 0.9
+  },
+  {
+   "case": "cannibal-1/s2",
+   "expected": "cannibalization",
+   "got": "cannibalization",
+   "ok": true,
+   "tier": "CONFIDENT",
+   "conf": 0.66
+  },
+  {
+   "case": "unknown-1/s2",
+   "expected": "UNKNOWN",
+   "got": "UNKNOWN",
+   "ok": true,
+   "tier": "UNKNOWN",
+   "conf": 0.58
+  },
+  {
+   "case": "unknown-2/s2",
+   "expected": "UNKNOWN",
+   "got": "UNKNOWN",
+   "ok": true,
+   "tier": "UNKNOWN",
+   "conf": 0.51
+  },
+  {
+   "case": "stockout-weak/s2",
+   "expected": "stockout",
+   "got": "stockout",
+   "ok": true,
+   "tier": "CONFIDENT",
+   "conf": 0.67
+  },
+  {
+   "case": "price-subtle/s2",
+   "expected": "price_rise",
+   "got": "QUIET",
+   "ok": false,
+   "tier": "QUIET",
+   "conf": null
+  },
+  {
+   "case": "deliv-short/s2",
+   "expected": "delivery_degradation",
+   "got": "delivery_degradation",
+   "ok": true,
+   "tier": "CONFIDENT",
+   "conf": 0.65
+  },
+  {
+   "case": "late-onset/s2",
+   "expected": "supply_shortage",
+   "got": "supply_shortage",
+   "ok": true,
+   "tier": "CONFIDENT",
+   "conf": 0.74
+  },
+  {
+   "case": "double-cause/s2",
+   "expected": "delivery_degradation",
+   "got": "delivery_degradation",
+   "ok": true,
+   "tier": "AMBIGUOUS",
+   "conf": 0.76
+  },
+  {
+   "case": "clean-1/s2",
+   "expected": "QUIET",
+   "got": "QUIET",
+   "ok": true,
+   "tier": "QUIET",
+   "conf": null
+  },
+  {
+   "case": "clean-2/s2",
+   "expected": "QUIET",
+   "got": "QUIET",
+   "ok": true,
+   "tier": "QUIET",
+   "conf": null
+  },
+  {
+   "case": "clean-3/s2",
+   "expected": "QUIET",
+   "got": "QUIET",
+   "ok": true,
+   "tier": "QUIET",
+   "conf": null
+  },
+  {
+   "case": "clean-4/s2",
+   "expected": "QUIET",
+   "got": "QUIET",
+   "ok": true,
+   "tier": "QUIET",
+   "conf": null
+  },
+  {
+   "case": "stockout-1/s3",
+   "expected": "stockout",
+   "got": "stockout",
+   "ok": true,
+   "tier": "CONFIDENT",
+   "conf": 0.78
+  },
+  {
+   "case": "stockout-2/s3",
+   "expected": "stockout",
+   "got": "stockout",
+   "ok": true,
+   "tier": "CONFIDENT",
+   "conf": 0.76
+  },
+  {
+   "case": "price-1/s3",
+   "expected": "price_rise",
+   "got": "price_rise",
+   "ok": true,
+   "tier": "CONFIDENT",
+   "conf": 0.74
+  },
+  {
+   "case": "price-2/s3",
+   "expected": "price_rise",
+   "got": "price_rise",
+   "ok": true,
+   "tier": "CONFIDENT",
+   "conf": 0.69
+  },
+  {
+   "case": "competitor-1/s3",
+   "expected": "competitor_entry",
+   "got": "competitor_entry",
+   "ok": true,
+   "tier": "CONFIDENT",
+   "conf": 0.78
+  },
+  {
+   "case": "competitor-2/s3",
+   "expected": "competitor_entry",
+   "got": "competitor_entry",
+   "ok": true,
+   "tier": "CONFIDENT",
+   "conf": 0.78
+  },
+  {
+   "case": "campaign-1/s3",
+   "expected": "campaign_end",
+   "got": "campaign_end",
+   "ok": true,
+   "tier": "CONFIDENT",
+   "conf": 0.54
+  },
+  {
+   "case": "delivery-1/s3",
+   "expected": "delivery_degradation",
+   "got": "delivery_degradation",
+   "ok": true,
+   "tier": "CONFIDENT",
+   "conf": 0.73
+  },
+  {
+   "case": "delivery-2/s3",
+   "expected": "delivery_degradation",
+   "got": "QUIET",
+   "ok": false,
+   "tier": "QUIET",
+   "conf": null
+  },
+  {
+   "case": "discount-1/s3",
+   "expected": "discount_launch",
+   "got": "QUIET",
+   "ok": false,
+   "tier": "QUIET",
+   "conf": null
+  },
+  {
+   "case": "supply-1/s3",
+   "expected": "supply_shortage",
+   "got": "supply_shortage",
+   "ok": true,
+   "tier": "CONFIDENT",
+   "conf": 0.9
+  },
+  {
+   "case": "supply-2/s3",
+   "expected": "supply_shortage",
+   "got": "UNKNOWN",
+   "ok": false,
+   "tier": "UNKNOWN",
+   "conf": 0.57
+  },
+  {
+   "case": "cannibal-1/s3",
+   "expected": "cannibalization",
+   "got": "cannibalization",
+   "ok": true,
+   "tier": "CONFIDENT",
+   "conf": 0.71
+  },
+  {
+   "case": "unknown-1/s3",
+   "expected": "UNKNOWN",
+   "got": "competitor_entry",
+   "ok": false,
+   "tier": "CONFIDENT",
+   "conf": 0.87
+  },
+  {
+   "case": "unknown-2/s3",
+   "expected": "UNKNOWN",
+   "got": "UNKNOWN",
+   "ok": true,
+   "tier": "UNKNOWN",
+   "conf": 0.5
+  },
+  {
+   "case": "stockout-weak/s3",
+   "expected": "stockout",
+   "got": "QUIET",
+   "ok": false,
+   "tier": "QUIET",
+   "conf": null
+  },
+  {
+   "case": "price-subtle/s3",
+   "expected": "price_rise",
+   "got": "price_rise",
+   "ok": true,
+   "tier": "CONFIDENT",
+   "conf": 0.66
+  },
+  {
+   "case": "deliv-short/s3",
+   "expected": "delivery_degradation",
+   "got": "QUIET",
+   "ok": false,
+   "tier": "QUIET",
+   "conf": null
+  },
+  {
+   "case": "late-onset/s3",
+   "expected": "supply_shortage",
+   "got": "UNKNOWN",
+   "ok": false,
+   "tier": "UNKNOWN",
+   "conf": 0.46
+  },
+  {
+   "case": "double-cause/s3",
+   "expected": "delivery_degradation",
+   "got": "delivery_degradation",
+   "ok": true,
+   "tier": "AMBIGUOUS",
+   "conf": 0.78
+  },
+  {
+   "case": "clean-1/s3",
+   "expected": "QUIET",
+   "got": "QUIET",
+   "ok": true,
+   "tier": "QUIET",
+   "conf": null
+  },
+  {
+   "case": "clean-2/s3",
+   "expected": "QUIET",
+   "got": "QUIET",
+   "ok": true,
+   "tier": "QUIET",
+   "conf": null
+  },
+  {
+   "case": "clean-3/s3",
+   "expected": "QUIET",
+   "got": "QUIET",
+   "ok": true,
+   "tier": "QUIET",
+   "conf": null
+  },
+  {
+   "case": "clean-4/s3",
+   "expected": "QUIET",
+   "got": "QUIET",
+   "ok": true,
+   "tier": "QUIET",
+   "conf": null
+  },
+  {
+   "case": "sparse-1/s1",
+   "expected": "SPARSE",
+   "got": "SPARSE",
+   "ok": true,
+   "tier": "SPARSE",
+   "conf": 0.0
+  }
+ ],
+ "telemetry": {
+  "total_ms": 69.9,
+  "llm_tokens": 0,
+  "cost_inr": 0.0,
+  "stages": [
+   {
+    "stage": "detect",
+    "ms": 1.5,
+    "tokens": 0,
+    "cost_inr": 0.0
+   },
+   {
+    "stage": "localize",
+    "ms": 5.2,
+    "tokens": 0,
+    "cost_inr": 0.0
+   },
+   {
+    "stage": "diagnose",
+    "ms": 10.1,
+    "tokens": 0,
+    "cost_inr": 0.0
+   },
+   {
+    "stage": "falsify",
+    "ms": 3.2,
+    "tokens": 0,
+    "cost_inr": 0.0
+   },
+   {
+    "stage": "verify",
+    "ms": 1.1,
+    "tokens": 0,
+    "cost_inr": 0.0
+   },
+   {
+    "stage": "detect",
+    "ms": 1.1,
+    "tokens": 0,
+    "cost_inr": 0.0
+   },
+   {
+    "stage": "localize",
+    "ms": 3.8,
+    "tokens": 0,
+    "cost_inr": 0.0
+   },
+   {
+    "stage": "diagnose",
+    "ms": 10.5,
+    "tokens": 0,
+    "cost_inr": 0.0
+   },
+   {
+    "stage": "falsify",
+    "ms": 2.9,
+    "tokens": 0,
+    "cost_inr": 0.0
+   },
+   {
+    "stage": "detect",
+    "ms": 1.0,
+    "tokens": 0,
+    "cost_inr": 0.0
+   },
+   {
+    "stage": "localize",
+    "ms": 3.7,
+    "tokens": 0,
+    "cost_inr": 0.0
+   },
+   {
+    "stage": "diagnose",
+    "ms": 7.8,
+    "tokens": 0,
+    "cost_inr": 0.0
+   },
+   {
+    "stage": "falsify",
+    "ms": 6.1,
+    "tokens": 0,
+    "cost_inr": 0.0
+   },
+   {
+    "stage": "detect",
+    "ms": 1.0,
+    "tokens": 0,
+    "cost_inr": 0.0
+   },
+   {
+    "stage": "localize",
+    "ms": 3.5,
+    "tokens": 0,
+    "cost_inr": 0.0
+   },
+   {
+    "stage": "diagnose",
+    "ms": 7.4,
+    "tokens": 0,
+    "cost_inr": 0.0
+   }
+  ]
+ },
+ "cases": [
+  {
+   "case_id": "MMD-101",
+   "title": "The dip with a cause in no table",
+   "kpi": "net_revenue",
+   "region": "North",
+   "category": "Dairy",
+   "window": [
+    "2026-08-07",
+    "2026-08-20"
+   ],
+   "pct": -9.1,
+   "delta_inr": -51809.0,
+   "mean_z": -2.16,
+   "tier": "CONFIDENT",
+   "confidence": 0.72,
+   "shape": "step_down_persistent",
+   "diagnosis": "delivery_degradation",
+   "candidates": [
+    {
+     "mechanism": "delivery_degradation",
+     "score": 1.0
+    },
+    {
+     "mechanism": "competitor_entry",
+     "score": 0.45
+    },
+    {
+     "mechanism": "cannibalization",
+     "score": 0.25
+    }
+   ],
+   "evidence": [
+    {
+     "id": "E1",
+     "fact": "net_revenue North moved -51,809 (-9.1%) vs day-of-week expected band, mean z -2.16",
+     "method": "statistics",
+     "source": "pos_sales"
+    },
+    {
+     "id": "E2",
+     "fact": "channel=App explains 54.6% of the movement",
+     "method": "contribution_analysis",
+     "source": "pos_sales"
+    },
+    {
+     "id": "E3",
+     "fact": "avg delivery time rose 11 to 18 min in the window",
+     "method": "sql_aggregation",
+     "source": "pos_sales"
+    },
+    {
+     "id": "E4",
+     "fact": "49 support tickets in the window cite delivery delays (keyword retrieval over ops_tickets)",
+     "method": "retrieval",
+     "source": "ops_tickets"
+    },
+    {
+     "id": "E5",
+     "fact": "shape classified step_down_persistent; top fingerprint delivery_degradation score 1.0, runner up competitor_entry 0.45",
+     "method": "business_rules",
+     "source": "fingerprint_library"
+    },
+    {
+     "id": "E6",
+     "fact": "control test PASSED: the same window in control regions stayed inside the band (e.g. South mean z -0.21), the cause is local to North",
+     "method": "control_group",
+     "source": "pos_sales"
+    },
+    {
+     "id": "E7",
+     "fact": "post action recheck at 2026-08-30: mean z -0.09, verdict RESOLVED, KPI back inside its expected band, diagnosis confirmed",
+     "method": "statistics",
+     "source": "pos_sales"
+    }
+   ],
+   "localization": [
+    {
+     "dim": "channel",
+     "value": "App",
+     "delta": -28270.0,
+     "share_pct": 54.6
+    },
+    {
+     "dim": "channel",
+     "value": "Store",
+     "delta": -19666.0,
+     "share_pct": 38.0
+    },
+    {
+     "dim": "channel",
+     "value": "Web",
+     "delta": -13522.0,
+     "share_pct": 26.1
+    }
+   ],
+   "control": [
+    [
+     "South",
+     -0.21
+    ],
+    [
+     "East",
+     -0.18
+    ],
+    [
+     "West",
+     0.03
+    ]
+   ],
+   "separating_test": null,
+   "human_ask": null,
+   "playbook": {
+    "action": "Add backup rider capacity, escalate to the logistics partner, recheck in 7 days",
+    "owner": "ops_lead",
+    "recheck_days": 7
+   },
+   "verification": {
+    "recheck_window": [
+     "2026-08-24",
+     "2026-08-30"
+    ],
+    "mean_z_after": -0.09,
+    "healed": true,
+    "verdict": "RESOLVED, KPI back inside its expected band, diagnosis confirmed"
+   },
+   "series": [
+    {
+     "day": "2026-06-22",
+     "value": 38611.0
+    },
+    {
+     "day": "2026-06-23",
+     "value": 36450.0
+    },
+    {
+     "day": "2026-06-24",
+     "value": 39602.0
+    },
+    {
+     "day": "2026-06-25",
+     "value": 39630.0
+    },
+    {
+     "day": "2026-06-26",
+     "value": 42342.0
+    },
+    {
+     "day": "2026-06-27",
+     "value": 48333.0
+    },
+    {
+     "day": "2026-06-28",
+     "value": 42984.0
+    },
+    {
+     "day": "2026-06-29",
+     "value": 41748.0
+    },
+    {
+     "day": "2026-06-30",
+     "value": 37416.0
+    },
+    {
+     "day": "2026-07-01",
+     "value": 38521.0
+    },
+    {
+     "day": "2026-07-02",
+     "value": 36708.0
+    },
+    {
+     "day": "2026-07-03",
+     "value": 43291.0
+    },
+    {
+     "day": "2026-07-04",
+     "value": 47788.0
+    },
+    {
+     "day": "2026-07-05",
+     "value": 44030.0
+    },
+    {
+     "day": "2026-07-06",
+     "value": 41241.0
+    },
+    {
+     "day": "2026-07-07",
+     "value": 36048.0
+    },
+    {
+     "day": "2026-07-08",
+     "value": 38500.0
+    },
+    {
+     "day": "2026-07-09",
+     "value": 43341.0
+    },
+    {
+     "day": "2026-07-10",
+     "value": 42065.0
+    },
+    {
+     "day": "2026-07-11",
+     "value": 44448.0
+    },
+    {
+     "day": "2026-07-12",
+     "value": 45548.0
+    },
+    {
+     "day": "2026-07-13",
+     "value": 43364.0
+    },
+    {
+     "day": "2026-07-14",
+     "value": 35199.0
+    },
+    {
+     "day": "2026-07-15",
+     "value": 36848.0
+    },
+    {
+     "day": "2026-07-16",
+     "value": 38483.0
+    },
+    {
+     "day": "2026-07-17",
+     "value": 42825.0
+    },
+    {
+     "day": "2026-07-18",
+     "value": 45944.0
+    },
+    {
+     "day": "2026-07-19",
+     "value": 41893.0
+    },
+    {
+     "day": "2026-07-20",
+     "value": 40666.0
+    },
+    {
+     "day": "2026-07-21",
+     "value": 36527.0
+    },
+    {
+     "day": "2026-07-22",
+     "value": 38904.0
+    },
+    {
+     "day": "2026-07-23",
+     "value": 40164.0
+    },
+    {
+     "day": "2026-07-24",
+     "value": 40927.0
+    },
+    {
+     "day": "2026-07-25",
+     "value": 44761.0
+    },
+    {
+     "day": "2026-07-26",
+     "value": 44211.0
+    },
+    {
+     "day": "2026-07-27",
+     "value": 37890.0
+    },
+    {
+     "day": "2026-07-28",
+     "value": 34243.0
+    },
+    {
+     "day": "2026-07-29",
+     "value": 38997.0
+    },
+    {
+     "day": "2026-07-30",
+     "value": 40728.0
+    },
+    {
+     "day": "2026-07-31",
+     "value": 42086.0
+    },
+    {
+     "day": "2026-08-01",
+     "value": 47259.0
+    },
+    {
+     "day": "2026-08-02",
+     "value": 43397.0
+    },
+    {
+     "day": "2026-08-03",
+     "value": 38622.0
+    },
+    {
+     "day": "2026-08-04",
+     "value": 38104.0
+    },
+    {
+     "day": "2026-08-05",
+     "value": 40073.0
+    },
+    {
+     "day": "2026-08-06",
+     "value": 36677.0
+    },
+    {
+     "day": "2026-08-07",
+     "value": 41307.0
+    },
+    {
+     "day": "2026-08-08",
+     "value": 41972.0
+    },
+    {
+     "day": "2026-08-09",
+     "value": 36557.0
+    },
+    {
+     "day": "2026-08-10",
+     "value": 33828.0
+    },
+    {
+     "day": "2026-08-11",
+     "value": 34177.0
+    },
+    {
+     "day": "2026-08-12",
+     "value": 34073.0
+    },
+    {
+     "day": "2026-08-13",
+     "value": 35337.0
+    },
+    {
+     "day": "2026-08-14",
+     "value": 36627.0
+    },
+    {
+     "day": "2026-08-15",
+     "value": 40040.0
+    },
+    {
+     "day": "2026-08-16",
+     "value": 42308.0
+    },
+    {
+     "day": "2026-08-17",
+     "value": 35707.0
+    },
+    {
+     "day": "2026-08-18",
+     "value": 35691.0
+    },
+    {
+     "day": "2026-08-19",
+     "value": 33099.0
+    },
+    {
+     "day": "2026-08-20",
+     "value": 38380.0
+    }
+   ],
+   "window_start_index": 46
+  },
+  {
+   "case_id": "MMD-102",
+   "title": "The slow bleed",
+   "kpi": "net_revenue",
+   "region": "West",
+   "category": "Beverages",
+   "window": [
+    "2026-08-07",
+    "2026-08-20"
+   ],
+   "pct": -18.1,
+   "delta_inr": -116418.0,
+   "mean_z": -4.3,
+   "tier": "CONFIDENT",
+   "confidence": 0.8,
+   "shape": "slow_slide",
+   "diagnosis": "competitor_entry",
+   "candidates": [
+    {
+     "mechanism": "competitor_entry",
+     "score": 1.0
+    },
+    {
+     "mechanism": "stockout",
+     "score": 0.0
+    },
+    {
+     "mechanism": "price_rise",
+     "score": 0.0
+    }
+   ],
+   "evidence": [
+    {
+     "id": "E1",
+     "fact": "net_revenue West moved -116,418 (-18.1%) vs day-of-week expected band, mean z -4.3",
+     "method": "statistics",
+     "source": "pos_sales"
+    },
+    {
+     "id": "E2",
+     "fact": "channel=App explains 40.9% of the movement",
+     "method": "contribution_analysis",
+     "source": "pos_sales"
+    },
+    {
+     "id": "E3",
+     "fact": "shape classified slow_slide; top fingerprint competitor_entry score 1.0, runner up stockout 0.0",
+     "method": "business_rules",
+     "source": "fingerprint_library"
+    },
+    {
+     "id": "E4",
+     "fact": "control test PASSED: the same window in control regions stayed inside the band (e.g. North mean z -0.05), the cause is local to West",
+     "method": "control_group",
+     "source": "pos_sales"
+    }
+   ],
+   "localization": [
+    {
+     "dim": "channel",
+     "value": "App",
+     "delta": -47572.0,
+     "share_pct": 40.9
+    },
+    {
+     "dim": "channel",
+     "value": "Store",
+     "delta": -33092.0,
+     "share_pct": 28.4
+    },
+    {
+     "dim": "channel",
+     "value": "Web",
+     "delta": -22750.0,
+     "share_pct": 19.5
+    }
+   ],
+   "control": [
+    [
+     "North",
+     -0.05
+    ],
+    [
+     "South",
+     0.3
+    ],
+    [
+     "East",
+     0.08
+    ]
+   ],
+   "separating_test": null,
+   "human_ask": null,
+   "playbook": {
+    "action": "Field check within 1 km of affected stores, launch a local counter promo, monitor weekly",
+    "owner": "regional_head",
+    "recheck_days": 30
+   },
+   "verification": null,
+   "series": [
+    {
+     "day": "2026-06-22",
+     "value": 44552.0
+    },
+    {
+     "day": "2026-06-23",
+     "value": 40220.0
+    },
+    {
+     "day": "2026-06-24",
+     "value": 42424.0
+    },
+    {
+     "day": "2026-06-25",
+     "value": 47866.0
+    },
+    {
+     "day": "2026-06-26",
+     "value": 47536.0
+    },
+    {
+     "day": "2026-06-27",
+     "value": 52743.0
+    },
+    {
+     "day": "2026-06-28",
+     "value": 50091.0
+    },
+    {
+     "day": "2026-06-29",
+     "value": 41439.0
+    },
+    {
+     "day": "2026-06-30",
+     "value": 42442.0
+    },
+    {
+     "day": "2026-07-01",
+     "value": 41453.0
+    },
+    {
+     "day": "2026-07-02",
+     "value": 44311.0
+    },
+    {
+     "day": "2026-07-03",
+     "value": 47954.0
+    },
+    {
+     "day": "2026-07-04",
+     "value": 49705.0
+    },
+    {
+     "day": "2026-07-05",
+     "value": 49858.0
+    },
+    {
+     "day": "2026-07-06",
+     "value": 45416.0
+    },
+    {
+     "day": "2026-07-07",
+     "value": 44531.0
+    },
+    {
+     "day": "2026-07-08",
+     "value": 43566.0
+    },
+    {
+     "day": "2026-07-09",
+     "value": 45184.0
+    },
+    {
+     "day": "2026-07-10",
+     "value": 50586.0
+    },
+    {
+     "day": "2026-07-11",
+     "value": 49887.0
+    },
+    {
+     "day": "2026-07-12",
+     "value": 49592.0
+    },
+    {
+     "day": "2026-07-13",
+     "value": 45090.0
+    },
+    {
+     "day": "2026-07-14",
+     "value": 39575.0
+    },
+    {
+     "day": "2026-07-15",
+     "value": 44314.0
+    },
+    {
+     "day": "2026-07-16",
+     "value": 41906.0
+    },
+    {
+     "day": "2026-07-17",
+     "value": 45428.0
+    },
+    {
+     "day": "2026-07-18",
+     "value": 50326.0
+    },
+    {
+     "day": "2026-07-19",
+     "value": 47886.0
+    },
+    {
+     "day": "2026-07-20",
+     "value": 46873.0
+    },
+    {
+     "day": "2026-07-21",
+     "value": 40451.0
+    },
+    {
+     "day": "2026-07-22",
+     "value": 42165.0
+    },
+    {
+     "day": "2026-07-23",
+     "value": 44346.0
+    },
+    {
+     "day": "2026-07-24",
+     "value": 46070.0
+    },
+    {
+     "day": "2026-07-25",
+     "value": 49434.0
+    },
+    {
+     "day": "2026-07-26",
+     "value": 48816.0
+    },
+    {
+     "day": "2026-07-27",
+     "value": 42438.0
+    },
+    {
+     "day": "2026-07-28",
+     "value": 40552.0
+    },
+    {
+     "day": "2026-07-29",
+     "value": 43214.0
+    },
+    {
+     "day": "2026-07-30",
+     "value": 46340.0
+    },
+    {
+     "day": "2026-07-31",
+     "value": 44803.0
+    },
+    {
+     "day": "2026-08-01",
+     "value": 50313.0
+    },
+    {
+     "day": "2026-08-02",
+     "value": 49389.0
+    },
+    {
+     "day": "2026-08-03",
+     "value": 41531.0
+    },
+    {
+     "day": "2026-08-04",
+     "value": 40155.0
+    },
+    {
+     "day": "2026-08-05",
+     "value": 41319.0
+    },
+    {
+     "day": "2026-08-06",
+     "value": 41492.0
+    },
+    {
+     "day": "2026-08-07",
+     "value": 44701.0
+    },
+    {
+     "day": "2026-08-08",
+     "value": 42485.0
+    },
+    {
+     "day": "2026-08-09",
+     "value": 46915.0
+    },
+    {
+     "day": "2026-08-10",
+     "value": 42192.0
+    },
+    {
+     "day": "2026-08-11",
+     "value": 34215.0
+    },
+    {
+     "day": "2026-08-12",
+     "value": 37842.0
+    },
+    {
+     "day": "2026-08-13",
+     "value": 39347.0
+    },
+    {
+     "day": "2026-08-14",
+     "value": 37568.0
+    },
+    {
+     "day": "2026-08-15",
+     "value": 42212.0
+    },
+    {
+     "day": "2026-08-16",
+     "value": 38318.0
+    },
+    {
+     "day": "2026-08-17",
+     "value": 32548.0
+    },
+    {
+     "day": "2026-08-18",
+     "value": 31480.0
+    },
+    {
+     "day": "2026-08-19",
+     "value": 27807.0
+    },
+    {
+     "day": "2026-08-20",
+     "value": 30837.0
+    }
+   ],
+   "window_start_index": 46
+  },
+  {
+   "case_id": "MMD-103",
+   "title": "The win, explained",
+   "kpi": "net_revenue",
+   "region": "East",
+   "category": "Household",
+   "window": [
+    "2026-08-07",
+    "2026-08-20"
+   ],
+   "pct": 6.9,
+   "delta_inr": 29916.0,
+   "mean_z": 1.73,
+   "tier": "CONFIDENT",
+   "confidence": 0.67,
+   "shape": "lift",
+   "diagnosis": "discount_launch",
+   "candidates": [
+    {
+     "mechanism": "discount_launch",
+     "score": 1.0
+    },
+    {
+     "mechanism": "stockout",
+     "score": 0.0
+    },
+    {
+     "mechanism": "price_rise",
+     "score": 0.0
+    }
+   ],
+   "evidence": [
+    {
+     "id": "E1",
+     "fact": "net_revenue East moved 29,916 (6.9%) vs day-of-week expected band, mean z 1.73",
+     "method": "statistics",
+     "source": "pos_sales"
+    },
+    {
+     "id": "E2",
+     "fact": "channel=App explains 43.6% of the movement",
+     "method": "contribution_analysis",
+     "source": "pos_sales"
+    },
+    {
+     "id": "E3",
+     "fact": "avg unit price moved -15.5% in the window (140.0 to 118.4 INR)",
+     "method": "sql_aggregation",
+     "source": "pos_sales"
+    },
+    {
+     "id": "E4",
+     "fact": "shape classified lift; top fingerprint discount_launch score 1.0, runner up stockout 0.0",
+     "method": "business_rules",
+     "source": "fingerprint_library"
+    },
+    {
+     "id": "E5",
+     "fact": "control test PASSED: the same window in control regions stayed inside the band (e.g. North mean z -0.16), the cause is local to East",
+     "method": "control_group",
+     "source": "pos_sales"
+    }
+   ],
+   "localization": [
+    {
+     "dim": "channel",
+     "value": "App",
+     "delta": 13041.0,
+     "share_pct": 43.6
+    },
+    {
+     "dim": "channel",
+     "value": "Store",
+     "delta": 9069.0,
+     "share_pct": 30.3
+    },
+    {
+     "dim": "channel",
+     "value": "Web",
+     "delta": 6237.0,
+     "share_pct": 20.8
+    }
+   ],
+   "control": [
+    [
+     "North",
+     -0.16
+    ],
+    [
+     "South",
+     -3.58
+    ],
+    [
+     "West",
+     0.18
+    ]
+   ],
+   "separating_test": null,
+   "human_ask": null,
+   "playbook": {
+    "action": "Confirm promo ROI, cap discount depth if margin falls below floor",
+    "owner": "pricing_lead",
+    "recheck_days": 0
+   },
+   "verification": null,
+   "series": [
+    {
+     "day": "2026-06-22",
+     "value": 29199.0
+    },
+    {
+     "day": "2026-06-23",
+     "value": 26928.0
+    },
+    {
+     "day": "2026-06-24",
+     "value": 29424.0
+    },
+    {
+     "day": "2026-06-25",
+     "value": 28709.0
+    },
+    {
+     "day": "2026-06-26",
+     "value": 32398.0
+    },
+    {
+     "day": "2026-06-27",
+     "value": 35851.0
+    },
+    {
+     "day": "2026-06-28",
+     "value": 32159.0
+    },
+    {
+     "day": "2026-06-29",
+     "value": 31245.0
+    },
+    {
+     "day": "2026-06-30",
+     "value": 28628.0
+    },
+    {
+     "day": "2026-07-01",
+     "value": 28195.0
+    },
+    {
+     "day": "2026-07-02",
+     "value": 25961.0
+    },
+    {
+     "day": "2026-07-03",
+     "value": 30312.0
+    },
+    {
+     "day": "2026-07-04",
+     "value": 35698.0
+    },
+    {
+     "day": "2026-07-05",
+     "value": 32335.0
+    },
+    {
+     "day": "2026-07-06",
+     "value": 28825.0
+    },
+    {
+     "day": "2026-07-07",
+     "value": 28038.0
+    },
+    {
+     "day": "2026-07-08",
+     "value": 27941.0
+    },
+    {
+     "day": "2026-07-09",
+     "value": 29647.0
+    },
+    {
+     "day": "2026-07-10",
+     "value": 31987.0
+    },
+    {
+     "day": "2026-07-11",
+     "value": 36167.0
+    },
+    {
+     "day": "2026-07-12",
+     "value": 34817.0
+    },
+    {
+     "day": "2026-07-13",
+     "value": 30680.0
+    },
+    {
+     "day": "2026-07-14",
+     "value": 26692.0
+    },
+    {
+     "day": "2026-07-15",
+     "value": 28188.0
+    },
+    {
+     "day": "2026-07-16",
+     "value": 31087.0
+    },
+    {
+     "day": "2026-07-17",
+     "value": 31583.0
+    },
+    {
+     "day": "2026-07-18",
+     "value": 35817.0
+    },
+    {
+     "day": "2026-07-19",
+     "value": 31770.0
+    },
+    {
+     "day": "2026-07-20",
+     "value": 28829.0
+    },
+    {
+     "day": "2026-07-21",
+     "value": 26212.0
+    },
+    {
+     "day": "2026-07-22",
+     "value": 26778.0
+    },
+    {
+     "day": "2026-07-23",
+     "value": 30467.0
+    },
+    {
+     "day": "2026-07-24",
+     "value": 30064.0
+    },
+    {
+     "day": "2026-07-25",
+     "value": 34519.0
+    },
+    {
+     "day": "2026-07-26",
+     "value": 33706.0
+    },
+    {
+     "day": "2026-07-27",
+     "value": 28996.0
+    },
+    {
+     "day": "2026-07-28",
+     "value": 28357.0
+    },
+    {
+     "day": "2026-07-29",
+     "value": 30282.0
+    },
+    {
+     "day": "2026-07-30",
+     "value": 32912.0
+    },
+    {
+     "day": "2026-07-31",
+     "value": 31514.0
+    },
+    {
+     "day": "2026-08-01",
+     "value": 33501.0
+    },
+    {
+     "day": "2026-08-02",
+     "value": 33863.0
+    },
+    {
+     "day": "2026-08-03",
+     "value": 30801.0
+    },
+    {
+     "day": "2026-08-04",
+     "value": 28994.0
+    },
+    {
+     "day": "2026-08-05",
+     "value": 29167.0
+    },
+    {
+     "day": "2026-08-06",
+     "value": 30704.0
+    },
+    {
+     "day": "2026-08-07",
+     "value": 31687.0
+    },
+    {
+     "day": "2026-08-08",
+     "value": 35079.0
+    },
+    {
+     "day": "2026-08-09",
+     "value": 34797.0
+    },
+    {
+     "day": "2026-08-10",
+     "value": 31861.0
+    },
+    {
+     "day": "2026-08-11",
+     "value": 31052.0
+    },
+    {
+     "day": "2026-08-12",
+     "value": 30795.0
+    },
+    {
+     "day": "2026-08-13",
+     "value": 32937.0
+    },
+    {
+     "day": "2026-08-14",
+     "value": 33728.0
+    },
+    {
+     "day": "2026-08-15",
+     "value": 37771.0
+    },
+    {
+     "day": "2026-08-16",
+     "value": 35149.0
+    },
+    {
+     "day": "2026-08-17",
+     "value": 32233.0
+    },
+    {
+     "day": "2026-08-18",
+     "value": 29304.0
+    },
+    {
+     "day": "2026-08-19",
+     "value": 30940.0
+    },
+    {
+     "day": "2026-08-20",
+     "value": 35306.0
+    }
+   ],
+   "window_start_index": 46
+  },
+  {
+   "case_id": "MMD-104",
+   "title": "The honest unknown",
+   "kpi": "net_revenue",
+   "region": "South",
+   "category": "Household",
+   "window": [
+    "2026-08-07",
+    "2026-08-20"
+   ],
+   "pct": -15.6,
+   "delta_inr": -108421.0,
+   "mean_z": -3.58,
+   "tier": "UNKNOWN",
+   "confidence": 0.49,
+   "shape": "noise",
+   "diagnosis": "UNKNOWN",
+   "candidates": [
+    {
+     "mechanism": "competitor_entry",
+     "score": 0.45
+    },
+    {
+     "mechanism": "stockout",
+     "score": 0.0
+    },
+    {
+     "mechanism": "price_rise",
+     "score": 0.0
+    }
+   ],
+   "evidence": [
+    {
+     "id": "E1",
+     "fact": "net_revenue South moved -108,421 (-15.6%) vs day-of-week expected band, mean z -3.58",
+     "method": "statistics",
+     "source": "pos_sales"
+    },
+    {
+     "id": "E2",
+     "fact": "channel=App explains 42.0% of the movement",
+     "method": "contribution_analysis",
+     "source": "pos_sales"
+    },
+    {
+     "id": "E3",
+     "fact": "shape classified noise; top fingerprint competitor_entry score 0.45, runner up stockout 0.0",
+     "method": "business_rules",
+     "source": "fingerprint_library"
+    }
+   ],
+   "localization": [
+    {
+     "dim": "channel",
+     "value": "App",
+     "delta": -45489.0,
+     "share_pct": 42.0
+    },
+    {
+     "dim": "channel",
+     "value": "Store",
+     "delta": -31647.0,
+     "share_pct": 29.2
+    },
+    {
+     "dim": "channel",
+     "value": "Web",
+     "delta": -21757.0,
+     "share_pct": 20.1
+    }
+   ],
+   "control": [],
+   "separating_test": null,
+   "human_ask": "No fingerprint fits. Nearest human ask routed to the South ops lead: what changed on the ground between 2026-08-07 and 2026-08-20? The answer becomes a new fingerprint.",
+   "playbook": null,
+   "verification": null,
+   "series": [
+    {
+     "day": "2026-06-22",
+     "value": 45992.0
+    },
+    {
+     "day": "2026-06-23",
+     "value": 43605.0
+    },
+    {
+     "day": "2026-06-24",
+     "value": 47234.0
+    },
+    {
+     "day": "2026-06-25",
+     "value": 48033.0
+    },
+    {
+     "day": "2026-06-26",
+     "value": 51289.0
+    },
+    {
+     "day": "2026-06-27",
+     "value": 59735.0
+    },
+    {
+     "day": "2026-06-28",
+     "value": 51147.0
+    },
+    {
+     "day": "2026-06-29",
+     "value": 50677.0
+    },
+    {
+     "day": "2026-06-30",
+     "value": 48984.0
+    },
+    {
+     "day": "2026-07-01",
+     "value": 43429.0
+    },
+    {
+     "day": "2026-07-02",
+     "value": 50678.0
+    },
+    {
+     "day": "2026-07-03",
+     "value": 46800.0
+    },
+    {
+     "day": "2026-07-04",
+     "value": 58852.0
+    },
+    {
+     "day": "2026-07-05",
+     "value": 57878.0
+    },
+    {
+     "day": "2026-07-06",
+     "value": 42869.0
+    },
+    {
+     "day": "2026-07-07",
+     "value": 46009.0
+    },
+    {
+     "day": "2026-07-08",
+     "value": 48970.0
+    },
+    {
+     "day": "2026-07-09",
+     "value": 47016.0
+    },
+    {
+     "day": "2026-07-10",
+     "value": 52332.0
+    },
+    {
+     "day": "2026-07-11",
+     "value": 57853.0
+    },
+    {
+     "day": "2026-07-12",
+     "value": 53932.0
+    },
+    {
+     "day": "2026-07-13",
+     "value": 43314.0
+    },
+    {
+     "day": "2026-07-14",
+     "value": 46576.0
+    },
+    {
+     "day": "2026-07-15",
+     "value": 45205.0
+    },
+    {
+     "day": "2026-07-16",
+     "value": 47899.0
+    },
+    {
+     "day": "2026-07-17",
+     "value": 48011.0
+    },
+    {
+     "day": "2026-07-18",
+     "value": 52216.0
+    },
+    {
+     "day": "2026-07-19",
+     "value": 54653.0
+    },
+    {
+     "day": "2026-07-20",
+     "value": 47583.0
+    },
+    {
+     "day": "2026-07-21",
+     "value": 42476.0
+    },
+    {
+     "day": "2026-07-22",
+     "value": 48949.0
+    },
+    {
+     "day": "2026-07-23",
+     "value": 45297.0
+    },
+    {
+     "day": "2026-07-24",
+     "value": 47964.0
+    },
+    {
+     "day": "2026-07-25",
+     "value": 55758.0
+    },
+    {
+     "day": "2026-07-26",
+     "value": 52941.0
+    },
+    {
+     "day": "2026-07-27",
+     "value": 48065.0
+    },
+    {
+     "day": "2026-07-28",
+     "value": 44770.0
+    },
+    {
+     "day": "2026-07-29",
+     "value": 48742.0
+    },
+    {
+     "day": "2026-07-30",
+     "value": 47018.0
+    },
+    {
+     "day": "2026-07-31",
+     "value": 53993.0
+    },
+    {
+     "day": "2026-08-01",
+     "value": 54793.0
+    },
+    {
+     "day": "2026-08-02",
+     "value": 52874.0
+    },
+    {
+     "day": "2026-08-03",
+     "value": 45814.0
+    },
+    {
+     "day": "2026-08-04",
+     "value": 48868.0
+    },
+    {
+     "day": "2026-08-05",
+     "value": 45491.0
+    },
+    {
+     "day": "2026-08-06",
+     "value": 48107.0
+    },
+    {
+     "day": "2026-08-07",
+     "value": 49988.0
+    },
+    {
+     "day": "2026-08-08",
+     "value": 60764.0
+    },
+    {
+     "day": "2026-08-09",
+     "value": 54546.0
+    },
+    {
+     "day": "2026-08-10",
+     "value": 49155.0
+    },
+    {
+     "day": "2026-08-11",
+     "value": 35343.0
+    },
+    {
+     "day": "2026-08-12",
+     "value": 33614.0
+    },
+    {
+     "day": "2026-08-13",
+     "value": 35153.0
+    },
+    {
+     "day": "2026-08-14",
+     "value": 36489.0
+    },
+    {
+     "day": "2026-08-15",
+     "value": 41581.0
+    },
+    {
+     "day": "2026-08-16",
+     "value": 38471.0
+    },
+    {
+     "day": "2026-08-17",
+     "value": 33598.0
+    },
+    {
+     "day": "2026-08-18",
+     "value": 33664.0
+    },
+    {
+     "day": "2026-08-19",
+     "value": 33406.0
+    },
+    {
+     "day": "2026-08-20",
+     "value": 50284.0
+    }
+   ],
+   "window_start_index": 46
+  }
+ ]
+}

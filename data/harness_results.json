@@ -1,0 +1,586 @@
+[
+ {
+  "case": "stockout-1/s1",
+  "expected": "stockout",
+  "got": "stockout",
+  "ok": true,
+  "tier": "CONFIDENT",
+  "conf": 0.81
+ },
+ {
+  "case": "stockout-2/s1",
+  "expected": "stockout",
+  "got": "stockout",
+  "ok": true,
+  "tier": "CONFIDENT",
+  "conf": 0.75
+ },
+ {
+  "case": "price-1/s1",
+  "expected": "price_rise",
+  "got": "price_rise",
+  "ok": true,
+  "tier": "CONFIDENT",
+  "conf": 0.75
+ },
+ {
+  "case": "price-2/s1",
+  "expected": "price_rise",
+  "got": "price_rise",
+  "ok": true,
+  "tier": "CONFIDENT",
+  "conf": 0.72
+ },
+ {
+  "case": "competitor-1/s1",
+  "expected": "competitor_entry",
+  "got": "UNKNOWN",
+  "ok": false,
+  "tier": "UNKNOWN",
+  "conf": 0.47
+ },
+ {
+  "case": "competitor-2/s1",
+  "expected": "competitor_entry",
+  "got": "competitor_entry",
+  "ok": true,
+  "tier": "CONFIDENT",
+  "conf": 0.73
+ },
+ {
+  "case": "campaign-1/s1",
+  "expected": "campaign_end",
+  "got": "campaign_end",
+  "ok": true,
+  "tier": "CONFIDENT",
+  "conf": 0.5
+ },
+ {
+  "case": "delivery-1/s1",
+  "expected": "delivery_degradation",
+  "got": "delivery_degradation",
+  "ok": true,
+  "tier": "CONFIDENT",
+  "conf": 0.68
+ },
+ {
+  "case": "delivery-2/s1",
+  "expected": "delivery_degradation",
+  "got": "delivery_degradation",
+  "ok": true,
+  "tier": "CONFIDENT",
+  "conf": 0.64
+ },
+ {
+  "case": "discount-1/s1",
+  "expected": "discount_launch",
+  "got": "discount_launch",
+  "ok": true,
+  "tier": "CONFIDENT",
+  "conf": 0.7
+ },
+ {
+  "case": "supply-1/s1",
+  "expected": "supply_shortage",
+  "got": "supply_shortage",
+  "ok": true,
+  "tier": "CONFIDENT",
+  "conf": 0.88
+ },
+ {
+  "case": "supply-2/s1",
+  "expected": "supply_shortage",
+  "got": "supply_shortage",
+  "ok": true,
+  "tier": "CONFIDENT",
+  "conf": 0.87
+ },
+ {
+  "case": "cannibal-1/s1",
+  "expected": "cannibalization",
+  "got": "cannibalization",
+  "ok": true,
+  "tier": "CONFIDENT",
+  "conf": 0.64
+ },
+ {
+  "case": "unknown-1/s1",
+  "expected": "UNKNOWN",
+  "got": "UNKNOWN",
+  "ok": true,
+  "tier": "UNKNOWN",
+  "conf": 0.5
+ },
+ {
+  "case": "unknown-2/s1",
+  "expected": "UNKNOWN",
+  "got": "UNKNOWN",
+  "ok": true,
+  "tier": "UNKNOWN",
+  "conf": 0.51
+ },
+ {
+  "case": "stockout-weak/s1",
+  "expected": "stockout",
+  "got": "QUIET",
+  "ok": false,
+  "tier": "QUIET",
+  "conf": null
+ },
+ {
+  "case": "price-subtle/s1",
+  "expected": "price_rise",
+  "got": "price_rise",
+  "ok": true,
+  "tier": "CONFIDENT",
+  "conf": 0.76
+ },
+ {
+  "case": "deliv-short/s1",
+  "expected": "delivery_degradation",
+  "got": "delivery_degradation",
+  "ok": true,
+  "tier": "CONFIDENT",
+  "conf": 0.69
+ },
+ {
+  "case": "late-onset/s1",
+  "expected": "supply_shortage",
+  "got": "supply_shortage",
+  "ok": true,
+  "tier": "CONFIDENT",
+  "conf": 0.71
+ },
+ {
+  "case": "double-cause/s1",
+  "expected": "delivery_degradation",
+  "got": "delivery_degradation",
+  "ok": true,
+  "tier": "AMBIGUOUS",
+  "conf": 0.73
+ },
+ {
+  "case": "clean-1/s1",
+  "expected": "QUIET",
+  "got": "QUIET",
+  "ok": true,
+  "tier": "QUIET",
+  "conf": null
+ },
+ {
+  "case": "clean-2/s1",
+  "expected": "QUIET",
+  "got": "QUIET",
+  "ok": true,
+  "tier": "QUIET",
+  "conf": null
+ },
+ {
+  "case": "clean-3/s1",
+  "expected": "QUIET",
+  "got": "QUIET",
+  "ok": true,
+  "tier": "QUIET",
+  "conf": null
+ },
+ {
+  "case": "clean-4/s1",
+  "expected": "QUIET",
+  "got": "QUIET",
+  "ok": true,
+  "tier": "QUIET",
+  "conf": null
+ },
+ {
+  "case": "stockout-1/s2",
+  "expected": "stockout",
+  "got": "stockout",
+  "ok": true,
+  "tier": "CONFIDENT",
+  "conf": 0.76
+ },
+ {
+  "case": "stockout-2/s2",
+  "expected": "stockout",
+  "got": "stockout",
+  "ok": true,
+  "tier": "CONFIDENT",
+  "conf": 0.79
+ },
+ {
+  "case": "price-1/s2",
+  "expected": "price_rise",
+  "got": "price_rise",
+  "ok": true,
+  "tier": "CONFIDENT",
+  "conf": 0.76
+ },
+ {
+  "case": "price-2/s2",
+  "expected": "price_rise",
+  "got": "price_rise",
+  "ok": true,
+  "tier": "CONFIDENT",
+  "conf": 0.7
+ },
+ {
+  "case": "competitor-1/s2",
+  "expected": "competitor_entry",
+  "got": "UNKNOWN",
+  "ok": false,
+  "tier": "UNKNOWN",
+  "conf": 0.46
+ },
+ {
+  "case": "competitor-2/s2",
+  "expected": "competitor_entry",
+  "got": "competitor_entry",
+  "ok": true,
+  "tier": "CONFIDENT",
+  "conf": 0.83
+ },
+ {
+  "case": "campaign-1/s2",
+  "expected": "campaign_end",
+  "got": "campaign_end",
+  "ok": true,
+  "tier": "CONFIDENT",
+  "conf": 0.51
+ },
+ {
+  "case": "delivery-1/s2",
+  "expected": "delivery_degradation",
+  "got": "delivery_degradation",
+  "ok": true,
+  "tier": "CONFIDENT",
+  "conf": 0.7
+ },
+ {
+  "case": "delivery-2/s2",
+  "expected": "delivery_degradation",
+  "got": "QUIET",
+  "ok": false,
+  "tier": "QUIET",
+  "conf": null
+ },
+ {
+  "case": "discount-1/s2",
+  "expected": "discount_launch",
+  "got": "discount_launch",
+  "ok": true,
+  "tier": "CONFIDENT",
+  "conf": 0.67
+ },
+ {
+  "case": "supply-1/s2",
+  "expected": "supply_shortage",
+  "got": "supply_shortage",
+  "ok": true,
+  "tier": "CONFIDENT",
+  "conf": 0.89
+ },
+ {
+  "case": "supply-2/s2",
+  "expected": "supply_shortage",
+  "got": "supply_shortage",
+  "ok": true,
+  "tier": "CONFIDENT",
+  "conf": 0.9
+ },
+ {
+  "case": "cannibal-1/s2",
+  "expected": "cannibalization",
+  "got": "cannibalization",
+  "ok": true,
+  "tier": "CONFIDENT",
+  "conf": 0.66
+ },
+ {
+  "case": "unknown-1/s2",
+  "expected": "UNKNOWN",
+  "got": "UNKNOWN",
+  "ok": true,
+  "tier": "UNKNOWN",
+  "conf": 0.58
+ },
+ {
+  "case": "unknown-2/s2",
+  "expected": "UNKNOWN",
+  "got": "UNKNOWN",
+  "ok": true,
+  "tier": "UNKNOWN",
+  "conf": 0.51
+ },
+ {
+  "case": "stockout-weak/s2",
+  "expected": "stockout",
+  "got": "stockout",
+  "ok": true,
+  "tier": "CONFIDENT",
+  "conf": 0.67
+ },
+ {
+  "case": "price-subtle/s2",
+  "expected": "price_rise",
+  "got": "QUIET",
+  "ok": false,
+  "tier": "QUIET",
+  "conf": null
+ },
+ {
+  "case": "deliv-short/s2",
+  "expected": "delivery_degradation",
+  "got": "delivery_degradation",
+  "ok": true,
+  "tier": "CONFIDENT",
+  "conf": 0.65
+ },
+ {
+  "case": "late-onset/s2",
+  "expected": "supply_shortage",
+  "got": "supply_shortage",
+  "ok": true,
+  "tier": "CONFIDENT",
+  "conf": 0.74
+ },
+ {
+  "case": "double-cause/s2",
+  "expected": "delivery_degradation",
+  "got": "delivery_degradation",
+  "ok": true,
+  "tier": "AMBIGUOUS",
+  "conf": 0.76
+ },
+ {
+  "case": "clean-1/s2",
+  "expected": "QUIET",
+  "got": "QUIET",
+  "ok": true,
+  "tier": "QUIET",
+  "conf": null
+ },
+ {
+  "case": "clean-2/s2",
+  "expected": "QUIET",
+  "got": "QUIET",
+  "ok": true,
+  "tier": "QUIET",
+  "conf": null
+ },
+ {
+  "case": "clean-3/s2",
+  "expected": "QUIET",
+  "got": "QUIET",
+  "ok": true,
+  "tier": "QUIET",
+  "conf": null
+ },
+ {
+  "case": "clean-4/s2",
+  "expected": "QUIET",
+  "got": "QUIET",
+  "ok": true,
+  "tier": "QUIET",
+  "conf": null
+ },
+ {
+  "case": "stockout-1/s3",
+  "expected": "stockout",
+  "got": "stockout",
+  "ok": true,
+  "tier": "CONFIDENT",
+  "conf": 0.78
+ },
+ {
+  "case": "stockout-2/s3",
+  "expected": "stockout",
+  "got": "stockout",
+  "ok": true,
+  "tier": "CONFIDENT",
+  "conf": 0.76
+ },
+ {
+  "case": "price-1/s3",
+  "expected": "price_rise",
+  "got": "price_rise",
+  "ok": true,
+  "tier": "CONFIDENT",
+  "conf": 0.74
+ },
+ {
+  "case": "price-2/s3",
+  "expected": "price_rise",
+  "got": "price_rise",
+  "ok": true,
+  "tier": "CONFIDENT",
+  "conf": 0.69
+ },
+ {
+  "case": "competitor-1/s3",
+  "expected": "competitor_entry",
+  "got": "competitor_entry",
+  "ok": true,
+  "tier": "CONFIDENT",
+  "conf": 0.78
+ },
+ {
+  "case": "competitor-2/s3",
+  "expected": "competitor_entry",
+  "got": "competitor_entry",
+  "ok": true,
+  "tier": "CONFIDENT",
+  "conf": 0.78
+ },
+ {
+  "case": "campaign-1/s3",
+  "expected": "campaign_end",
+  "got": "campaign_end",
+  "ok": true,
+  "tier": "CONFIDENT",
+  "conf": 0.54
+ },
+ {
+  "case": "delivery-1/s3",
+  "expected": "delivery_degradation",
+  "got": "delivery_degradation",
+  "ok": true,
+  "tier": "CONFIDENT",
+  "conf": 0.73
+ },
+ {
+  "case": "delivery-2/s3",
+  "expected": "delivery_degradation",
+  "got": "QUIET",
+  "ok": false,
+  "tier": "QUIET",
+  "conf": null
+ },
+ {
+  "case": "discount-1/s3",
+  "expected": "discount_launch",
+  "got": "QUIET",
+  "ok": false,
+  "tier": "QUIET",
+  "conf": null
+ },
+ {
+  "case": "supply-1/s3",
+  "expected": "supply_shortage",
+  "got": "supply_shortage",
+  "ok": true,
+  "tier": "CONFIDENT",
+  "conf": 0.9
+ },
+ {
+  "case": "supply-2/s3",
+  "expected": "supply_shortage",
+  "got": "UNKNOWN",
+  "ok": false,
+  "tier": "UNKNOWN",
+  "conf": 0.57
+ },
+ {
+  "case": "cannibal-1/s3",
+  "expected": "cannibalization",
+  "got": "cannibalization",
+  "ok": true,
+  "tier": "CONFIDENT",
+  "conf": 0.71
+ },
+ {
+  "case": "unknown-1/s3",
+  "expected": "UNKNOWN",
+  "got": "competitor_entry",
+  "ok": false,
+  "tier": "CONFIDENT",
+  "conf": 0.87
+ },
+ {
+  "case": "unknown-2/s3",
+  "expected": "UNKNOWN",
+  "got": "UNKNOWN",
+  "ok": true,
+  "tier": "UNKNOWN",
+  "conf": 0.5
+ },
+ {
+  "case": "stockout-weak/s3",
+  "expected": "stockout",
+  "got": "QUIET",
+  "ok": false,
+  "tier": "QUIET",
+  "conf": null
+ },
+ {
+  "case": "price-subtle/s3",
+  "expected": "price_rise",
+  "got": "price_rise",
+  "ok": true,
+  "tier": "CONFIDENT",
+  "conf": 0.66
+ },
+ {
+  "case": "deliv-short/s3",
+  "expected": "delivery_degradation",
+  "got": "QUIET",
+  "ok": false,
+  "tier": "QUIET",
+  "conf": null
+ },
+ {
+  "case": "late-onset/s3",
+  "expected": "supply_shortage",
+  "got": "UNKNOWN",
+  "ok": false,
+  "tier": "UNKNOWN",
+  "conf": 0.46
+ },
+ {
+  "case": "double-cause/s3",
+  "expected": "delivery_degradation",
+  "got": "delivery_degradation",
+  "ok": true,
+  "tier": "AMBIGUOUS",
+  "conf": 0.78
+ },
+ {
+  "case": "clean-1/s3",
+  "expected": "QUIET",
+  "got": "QUIET",
+  "ok": true,
+  "tier": "QUIET",
+  "conf": null
+ },
+ {
+  "case": "clean-2/s3",
+  "expected": "QUIET",
+  "got": "QUIET",
+  "ok": true,
+  "tier": "QUIET",
+  "conf": null
+ },
+ {
+  "case": "clean-3/s3",
+  "expected": "QUIET",
+  "got": "QUIET",
+  "ok": true,
+  "tier": "QUIET",
+  "conf": null
+ },
+ {
+  "case": "clean-4/s3",
+  "expected": "QUIET",
+  "got": "QUIET",
+  "ok": true,
+  "tier": "QUIET",
+  "conf": null
+ },
+ {
+  "case": "sparse-1/s1",
+  "expected": "SPARSE",
+  "got": "SPARSE",
+  "ok": true,
+  "tier": "SPARSE",
+  "conf": 0.0
+ }
+]

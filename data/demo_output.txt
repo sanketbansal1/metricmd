@@ -1,0 +1,55 @@
+building one simulated quarter with four planted realities...
+
+============================================================================
+STORY A  THE DIP WITH A CAUSE IN NO TABLE  (North / Dairy)
+============================================================================
+net_revenue North / Dairy moved -9.1% (-51,809 INR) over 2026-08-07 to 2026-08-20 [E1]
+DIAGNOSIS delivery_degradation at confidence 0.72
+EVIDENCE channel=App explains 54.6% of the movement [E2] (contribution_analysis on pos_sales)
+EVIDENCE avg delivery time rose 11 to 18 min in the window [E3] (sql_aggregation on pos_sales)
+NEXT STEP Add backup rider capacity, escalate to the logistics partner, recheck in 7 days (within Priya Malhotra's levers: reorder, pricing_escalation, logistics_backup, local_promo). Owner: ops_lead. Recheck in 7 days.
+VERIFICATION RESOLVED, KPI back inside its expected band, diagnosis confirmed (mean z after: -0.09)
+
+[Priya taps Accept] {'kpi': 'net_revenue', 'region': 'North', 'diagnosis': 'delivery_degradation', 'verdict': 'accept'}
+
+============================================================================
+STORY B  THE SLOW BLEED  (West / Beverages)
+============================================================================
+net_revenue West / Beverages moved -18.1% (-116,418 INR) over 2026-08-07 to 2026-08-20 [E1]
+DIAGNOSIS competitor_entry at confidence 0.80
+EVIDENCE channel=App explains 40.9% of the movement [E2] (contribution_analysis on pos_sales)
+EVIDENCE shape classified slow_slide; top fingerprint competitor_entry score 1.0, runner up stockout 0.0 [E3] (business_rules on fingerprint_library)
+EVIDENCE control test PASSED: the same window in control regions stayed inside the band (e.g. North mean z -0.05), the cause is local to West [E4] (control_group on pos_sales)
+NEXT STEP Field check within 1 km of affected stores, launch a local counter promo, monitor weekly. Owner: regional_head. Recheck in 30 days.
+
+============================================================================
+STORY C  THE WIN, EXPLAINED  (East / Household)
+============================================================================
+net_revenue East / Household moved +6.9% (+29,916 INR) over 2026-08-07 to 2026-08-20 [E1]
+DIAGNOSIS discount_launch at confidence 0.67
+EVIDENCE channel=App explains 43.6% of the movement [E2] (contribution_analysis on pos_sales)
+EVIDENCE avg unit price moved -15.5% in the window (140.0 to 118.4 INR) [E3] (sql_aggregation on pos_sales)
+EVIDENCE shape classified lift; top fingerprint discount_launch score 1.0, runner up stockout 0.0 [E4] (business_rules on fingerprint_library)
+EVIDENCE control test PASSED: the same window in control regions stayed inside the band (e.g. North mean z -0.16), the cause is local to East [E5] (control_group on pos_sales)
+NEXT STEP Confirm promo ROI, cap discount depth if margin falls below floor. Owner: pricing_lead. Recheck in 0 days.
+
+============================================================================
+STORY D  THE HONEST UNKNOWN  (South / Household)
+============================================================================
+net_revenue South / Household moved -15.6% (-108,421 INR) over 2026-08-07 to 2026-08-20 [E1]
+HONEST UNKNOWN (best fingerprint scored only 0.45). No fingerprint fits. Nearest human ask routed to the South ops lead: what changed on the ground between 2026-08-07 and 2026-08-20? The answer becomes a new fingerprint.
+EVIDENCE channel=App explains 42.0% of the movement [E2] (contribution_analysis on pos_sales)
+EVIDENCE shape classified noise; top fingerprint competitor_entry score 0.45, runner up stockout 0.0 [E3] (business_rules on fingerprint_library)
+
+============================================================================
+ENTITLEMENT CHECK  Priya (scoped North) asks about West
+============================================================================
+ENTITLEMENT BLOCK: Priya Malhotra is scoped to region North by the contract, diagnosis for West is withheld. Logged to audit trail.
+
+============================================================================
+RUNTIME TELEMETRY
+============================================================================
+total engine time 83.3 ms, llm tokens 0, estimated llm cost INR 0.0
+stage timings: [('detect', 1.3), ('localize', 4.8), ('diagnose', 11.0), ('falsify', 3.4), ('verify', 1.2), ('narrate', 2.0), ('detect', 1.1), ('localize', 4.1)] ...
+
+Note: every number above was computed by SQL, statistics or business rules before any narrative was written. The LLM, when enabled, only phrases the evidence list. That is the truth boundary.
