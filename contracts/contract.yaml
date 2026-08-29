@@ -1,0 +1,99 @@
+# MetricMD Semantic Contract. Single source of truth.
+# Rule: the engine knows nothing that is not declared here.
+business:
+  name: UrbanBasket Retail (simulated)
+  currency: INR
+sources:
+  pos_sales:    {grain: daily,  refresh: nightly_02am, lag_hours: 6,  db: data/sales.db,     type: structured}
+  marketing:    {grain: weekly, refresh: monday_09am,  lag_hours: 72, db: data/marketing.db, type: structured}
+  ops_tickets:  {grain: event,  refresh: hourly,       lag_hours: 1,  db: data/ops.db,       type: unstructured}
+kpis:
+  net_revenue:
+    formula: sum(units * unit_price)
+    source: pos_sales
+    grain: daily
+    dimensions: [region, category, channel]
+    material_abs_inr: 25000
+    z_threshold: 3.0
+    min_history_days: 42
+  units_sold:
+    formula: sum(units)
+    source: pos_sales
+    grain: daily
+    dimensions: [region, category, channel]
+    z_threshold: 3.0
+    min_history_days: 42
+  avg_delivery_min:
+    formula: mean(delivery_min)
+    source: pos_sales
+    grain: daily
+    dimensions: [region]
+    z_threshold: 3.0
+    min_history_days: 42
+personas:
+  regional_head:
+    name: Priya Malhotra
+    scope: {region: North}
+    row_security: region
+    narrative_depth: executive
+    levers: [reorder, pricing_escalation, logistics_backup, local_promo]
+  central_analyst:
+    name: Dev Rao
+    scope: {}
+    row_security: none
+    narrative_depth: analyst
+    levers: [full]
+fingerprints:
+  stockout:
+    shape: cliff_rebound
+    corroborate: []
+    playbook: "Expedite reorder of the affected SKU, add safety buffer stock, notify category manager"
+    owner: category_manager
+    expected_recovery_days: 4
+  price_rise:
+    shape: step_down_persistent
+    corroborate: [unit_price_up]
+    playbook: "Review the last price change, run an elasticity check, consider partial rollback on hero SKUs"
+    owner: pricing_lead
+    expected_recovery_days: 14
+  competitor_entry:
+    shape: slow_slide
+    corroborate: [geo_bounded]
+    playbook: "Field check within 1 km of affected stores, launch a local counter promo, monitor weekly"
+    owner: regional_head
+    expected_recovery_days: 30
+  campaign_end:
+    shape: spike_return
+    corroborate: [campaign_window_ended]
+    playbook: "No corrective action. Treat as planned lift decay and adjust the forecast baseline"
+    owner: marketing_lead
+    expected_recovery_days: 0
+  delivery_degradation:
+    shape: step_down_persistent
+    corroborate: [delivery_min_up, tickets_cite_delay]
+    playbook: "Add backup rider capacity, escalate to the logistics partner, recheck in 7 days"
+    owner: ops_lead
+    expected_recovery_days: 7
+  discount_launch:
+    shape: lift
+    corroborate: [unit_price_down]
+    playbook: "Confirm promo ROI, cap discount depth if margin falls below floor"
+    owner: pricing_lead
+    expected_recovery_days: 0
+  cannibalization:
+    shape: step_down_persistent
+    corroborate: [sibling_category_up]
+    playbook: "Rebalance shelf and ad spend across sibling SKUs. No net revenue action needed"
+    owner: category_manager
+    expected_recovery_days: 0
+  supply_shortage:
+    shape: step_down_persistent
+    corroborate: [tickets_cite_supply]
+    playbook: "Qualify an alternate supplier, bridge hero SKUs with air freight"
+    owner: supply_lead
+    expected_recovery_days: 10
+llm:
+  role: phrasing_only
+  rule: "No number may originate in the LLM. Every sentence cites a computed evidence id."
+telemetry:
+  price_per_1k_tokens_inr: 0.35
