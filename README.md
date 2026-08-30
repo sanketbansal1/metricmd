@@ -556,7 +556,7 @@ Stated plainly, because a system that hides its failure modes has already lied t
 
 <br/>
 
-**[▶ Try the live console](https://metricmd.lovable.app)** · **[🏗 Read the architecture](docs/ARCHITECTURE.md)** · **[💼 Read the business case](docs/BUSINESS_PROPOSAL.md)**
+**[▶ Try the live console](https://metricmd.lovable.app)**
 
 <br/>
 
